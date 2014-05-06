@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/naimy/g.git/!svn/ver/17/trunk/application/models
+END
+config_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/naimy/g.git/!svn/ver/17/trunk/application/models/config_model.php
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/naimy/g.git/!svn/ver/1/trunk/application/models/index.html
+END
+nav_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/naimy/g.git/!svn/ver/1/trunk/application/models/nav_model.php
+END
+article_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/naimy/g.git/!svn/ver/1/trunk/application/models/article_model.php
+END
+chat_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/naimy/g.git/!svn/ver/1/trunk/application/models/chat_model.php
+END
+users_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/naimy/g.git/!svn/ver/1/trunk/application/models/users_model.php
+END
+login_model.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/naimy/g.git/!svn/ver/1/trunk/application/models/login_model.php
+END
