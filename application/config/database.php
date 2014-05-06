@@ -53,7 +53,7 @@ $DEV = 0;
 if($DEV == 0){
 	$db['default']['hostname'] = 'localhost';
 	$db['default']['username'] = 'root';
-	$db['default']['password'] = 'timisse78';
+	$db['default']['password'] = '78Timisse170';
 	$db['default']['database'] = 'g';
 	$db['default']['dbdriver'] = 'mysql';
 	$db['default']['dbprefix'] = '';
