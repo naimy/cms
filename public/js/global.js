@@ -1,7 +1,7 @@
 function modify() {
 	valueSelect = $('#userModidy option:selected').val();
 	$.ajax({
-		url : '/cms/index.php/modificationUsers',
+		url : '/index.php/modificationUsers',
 		type : 'POST', // Le type de la requête HTTP.
 		data : 'id=' + valueSelect,
 		dataType : 'html',
@@ -14,7 +14,7 @@ function modify() {
 $('#modifyArticleButton').click(function() {
     valueSelect = $('#selectArticle option:selected').val();
     $.ajax({
-        url : '/cms/index.php/ajaxArticle',
+        url : '/index.php/ajaxArticle',
         type : 'POST', // Le type de la requête HTTP.
         data : 'id=' + valueSelect,
         dataType : 'html',
@@ -27,20 +27,20 @@ $('#modifyArticleButton').click(function() {
 $('#deleteArticleButton').click(function() {
     valueSelect = $('#selectArticle option:selected').val();
     $.ajax({
-        url : '/cms/index.php/adminArticles/deleteArticle',
+        url : '/index.php/adminArticles/deleteArticle',
         type : 'POST', // Le type de la requête HTTP.
         data : 'id=' + valueSelect,
         dataType : 'html',
         success : function(data) {
             alert('Supression réussi');
-            window.location='/cms/index.php/adminArticles';
+            window.location='/index.php/adminArticles';
         }
     });
 });
 
 $('#createArticle').click(function() {
     $.ajax({
-        url : '/cms/index.php/ajaxArticle/createArticle',
+        url : '/index.php/ajaxArticle/createArticle',
         type : 'POST', // Le type de la requête HTTP.
         data : '',
         dataType : 'html',
@@ -53,12 +53,13 @@ $('#createArticle').click(function() {
 function changeTitle() {
     valueSelect = $('#changeTitle').val();
     $.ajax({
-        url : '/cms/index.php/ajaxTitle',
+        url : '/index.php/ajaxTitle',
         type : 'POST', // Le type de la requête HTTP.
         data : 'title=' + valueSelect,
         dataType : 'html',
         success : function(data) {
-
+        	 alert('Changement réussi réussi');
+        	 window.location='/index.php/site';
         }
 
     });
