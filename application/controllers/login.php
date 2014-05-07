@@ -36,7 +36,7 @@ class Login extends CI_Controller {
 			$_SESSION ['id'] = $responses[0]->id_user;
 			$_SESSION ['login'] = $responses [0]->login_user;
 			$_SESSION ['name'] = $responses [0]->name;
-			$_SESSION ['acces'] = $responses [0]->libelle_acess;
+			$_SESSION ['acces'] = $responses [0]->acces_id;
 			$_SESSION ['email'] = $responses [0]->user_email;
 			$_SESSION ['pseudo'] = $responses [0]->pseudo;
 			header ( 'Location:' . $baseurl );

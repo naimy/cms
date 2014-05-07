@@ -67,21 +67,36 @@ class AdminArticles extends CI_Controller {
 	public function addArticle() {
 		$this->load->helper ( 'url' );
 		$baseurl = site_url ();
+		$this->load->database ();
 
-		$aUsers = array (
-				"id_user" => "",
-				"login_user" => $_POST ['login'],
-				"password_user" => md5($_POST ['password']),
-				"name" => $_POST ['Name'],
-				"user_email" => $_POST ['mail'],
-				"acces_id" => $_POST ['groupUsers']
+		$dataArticles = array (
+				"id_articles" => $_POST ['id'],
+				"libelle_articles" => $_POST ['title'],
+				"content_article" => $_POST ['content']
 		);
 
-		$this->load->database ();
-		$this->load->model ( 'users_model' );
+		$this->load->model ( 'article_model' );
 		try {
-			$this->users_model->addUser ( $aUsers );
-			header ( 'Location:' . $baseurl . "index.php/adminusers?sucess=1" );
+			$this->article_model->addArticle( $dataArticles );
+			header ( 'Location:' . $baseurl . "index.php/adminArticles?sucess=1" );
+		} catch ( Exception $exception ) {
+			header ( 'Location:' . $baseurl . "?error=1" );
+		}
+	}
+
+	public function deleteArticle() {
+		$this->load->helper ( 'url' );
+		$baseurl = site_url ();
+		$this->load->database ();
+
+		$dataArticles = array (
+				"id_articles" => $_POST ['id']
+		);
+
+		$this->load->model ( 'article_model' );
+		try {
+			$this->article_model->deleteArticle( $dataArticles );
+			header ( 'Location:' . $baseurl . "index.php/adminArticles?sucess=1" );
 		} catch ( Exception $exception ) {
 			header ( 'Location:' . $baseurl . "?error=1" );
 		}
@@ -94,8 +109,7 @@ class AdminArticles extends CI_Controller {
 		$dataArticles = array (
 				"id_articles" => $_POST ['id'],
 				"libelle_articles" => $_POST ['title'],
-				"content_article" => $_POST ['content'],
-				"groupe_articles" => $_POST ['acces']
+				"content_article" => $_POST ['content']
 		);
 
 		$this->load->database ();

@@ -37,6 +37,11 @@ body {
 	border: 1px solid #000;
 }
 
+h2{
+	line-height: 2;
+	text-shadow: 1px 1px #808080
+}
+
 #nav ul li {
 	float: left;
 	list-style-type: none;

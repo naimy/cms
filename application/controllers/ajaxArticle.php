@@ -38,6 +38,12 @@ class ajaxArticle extends CI_Controller {
 			header ( 'Location:' . $baseurl . "?error=1" );
 		}
 	}
+
+	public function createArticle() {
+		$this->load->helper ( 'url' );
+		$baseurl = site_url ();
+		$this->load->view ( 'ajaxArticle');
+	}
 }
 
 /* End of file welcome.php */

@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <META http-equiv="Content-Script-Type" content="type">
 <title>Serveur G</title>
-
 <link href="<?php echo site_url() ?>public/css/templatemo_style.css"
 	rel="stylesheet" type="text/css" />
 <link href="<?php echo site_url() ?>public/css/global.css"
@@ -13,6 +12,7 @@
 	href="<?php echo site_url() ?>public/css/print.css" />
 </head>
 <body>
+	<input type="hidden" id="baseUrl" value="<?php echo "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>">
 	<div id="templatemo_wrapper">
 		<div id="ts3Viewer">
 	<?php
