@@ -53,9 +53,19 @@ class Server extends CI_Controller {
             	'adresse_Server' => $config[4]->value
             );
 
+            $this->load->model ( 'login_model' );
+            $logged = $this->login_model->getLogged ();
+            $names = "";
+            for($i=0;$i<count($logged);$i++){
+            	$names = $names . $logged[$i]->name . "  ";
+            }
+            $dataLogged = array (
+            		'names' => $names
+            );
+
 			$this->load->view ( 'common/header', $data );
 			$this->load->view ( 'server' );
-			$this->load->view ( 'common/footer');
+			$this->load->view ( 'common/footer', $dataLogged);
 		}
 		else {
 			header ( 'Location:' . $baseurl . "?error=1" );

@@ -44,14 +44,24 @@ class AdminArticles extends CI_Controller {
         $data = array (
             'connexion' => $connexion,
             'nav' => $responses,
-            'title' => $title[0]->title
+            'title' => $title[0]->value
         );
 
 		$data['Articles'] = $this->article_model->getArticles();
 
+		$this->load->model ( 'login_model' );
+		$logged = $this->login_model->getLogged ();
+		$names = "";
+		for($i=0;$i<count($logged);$i++){
+			$names = $names . $logged[$i]->name . "  ";
+		}
+		$dataLogged = array (
+				'names' => $names
+		);
+
 		$this->load->view ( 'common/header', $data );
 		$this->load->view ( 'adminArticles', $data);
-		$this->load->view ( 'common/footer');
+		$this->load->view ( 'common/footer', $dataLogged);
 	}
 
 	public function addArticle() {

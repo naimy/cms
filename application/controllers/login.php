@@ -46,8 +46,12 @@ class Login extends CI_Controller {
 	}
 	public function logout() {
 		session_start ();
+		$this->load->database ();
+		$this->load->model ( 'Login_model' );
 		$this->load->helper ( 'url' );
 		$baseurl = site_url ();
+
+		$responses = $this->Login_model->Logout ($_SESSION['id']);
 		session_destroy ();
 		header ( 'Location:' . $baseurl );
 	}

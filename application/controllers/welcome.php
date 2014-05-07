@@ -33,6 +33,7 @@ class Welcome extends CI_Controller {
 
 		$this->load->model ( 'nav_model' );
         $this->load->model ( 'config_model' );
+        $this->load->model ( 'login_model' );
 
 		try {
 			$responses = $this->nav_model->getNav ();
@@ -43,12 +44,24 @@ class Welcome extends CI_Controller {
 		$data = array (
 				'connexion' => $connexion,
 				'nav' => $responses,
-                'title' => $title[0]->title
+                'title' => $title[0]->value
+		);
+
+		$logged = $this->login_model->getLogged ();
+
+		$names = "";
+
+		for($i=0;$i<count($logged);$i++){
+			$names = $names . $logged[$i]->name . "  ";
+		}
+
+		$dataLogged = array (
+			'names' => $names
 		);
 
 		$this->load->view ( 'common/header', $data );
 		$this->load->view ( 'index' );
-		$this->load->view ( 'common/footer');
+		$this->load->view ( 'common/footer', $dataLogged);
 	}
 }
 

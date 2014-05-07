@@ -43,7 +43,7 @@ class Adminusers extends CI_Controller {
         $data = array (
             'connexion' => $connexion,
             'nav' => $responses,
-            'title' => $title[0]->title
+            'title' => $title[0]->value
         );
 
 		$this->load->model ( 'users_model' );
@@ -51,9 +51,19 @@ class Adminusers extends CI_Controller {
 		$dataGroup ['group'] = $this->users_model->groupUser ();
 		$dataGroup ['users'] = $this->users_model->getAllusers ();
 
+		$this->load->model ( 'login_model' );
+		$logged = $this->login_model->getLogged ();
+		$names = "";
+		for($i=0;$i<count($logged);$i++){
+			$names = $names . $logged[$i]->name . "  ";
+		}
+		$dataLogged = array (
+				'names' => $names
+		);
+
 		$this->load->view ( 'common/header', $data );
 		$this->load->view ( 'adminusers', $dataGroup );
-		$this->load->view ( 'common/footer');
+		$this->load->view ( 'common/footer', $dataLogged);
 	}
 
 	public function addlogin() {

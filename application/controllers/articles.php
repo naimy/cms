@@ -61,9 +61,19 @@ class Articles extends CI_Controller {
 				'articles' => array_filter($articles, $filter_empty_content)
 		);
 
+		$this->load->model ( 'login_model' );
+		$logged = $this->login_model->getLogged ();
+		$names = "";
+		for($i=0;$i<count($logged);$i++){
+			$names = $names . $logged[$i]->name . "  ";
+		}
+		$dataLogged = array (
+				'names' => $names
+		);
+
 		$this->load->view ( 'common/header', $data );
 		$this->load->view('articles', $dataArticles);
-		$this->load->view ( 'common/footer');
+		$this->load->view ( 'common/footer', $dataLogged);
 	}
 }
 

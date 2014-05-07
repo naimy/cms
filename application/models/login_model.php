@@ -10,6 +10,7 @@ class Login_model extends CI_Model {
 
 			if (! empty ( $result )) {
 				if ($result [0]->password_user == $password) {
+					$query = $this->db->query ( "UPDATE users SET logged = '1' WHERE login_user = '$login'");
 					return $result;
 				} else {
 					throw new Exception("Mauvais login et / ou mot de passe"); // mauvais mot de passe
@@ -19,4 +20,14 @@ class Login_model extends CI_Model {
 			}
 		}
 	}
+	function Logout($id) {
+		$query = $this->db->query ( "UPDATE users SET logged = '0' WHERE id_user = '$id'");
+	}
+
+	function getLogged() {
+		$query = $this->db->query ( "SELECT name from users where logged = '1'");
+		$result = $query->result ();
+		return $result;
+	}
+
 }

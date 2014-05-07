@@ -60,8 +60,8 @@
 			<div class="cleaner"></div>
 		</div>
 		<div class="tchatContainer">
-			<form id="input" style="display:none">
-				<input/>
+			<form id="input" style="display: none">
+				<input />
 			</form>
 			<div id="content"></div>
 		</div>

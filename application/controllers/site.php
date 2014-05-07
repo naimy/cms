@@ -40,9 +40,19 @@ class Site extends CI_Controller {
         	'adress' => $adress
         );
 
+        $this->load->model ( 'login_model' );
+        $logged = $this->login_model->getLogged ();
+        $names = "";
+        for($i=0;$i<count($logged);$i++){
+        	$names = $names . $logged[$i]->name . "  ";
+        }
+        $dataLogged = array (
+        		'names' => $names
+        );
+
         $this->load->view ( 'common/header', $data );
         $this->load->view ( 'site', $dataSite );
-        $this->load->view ( 'common/footer');
+        $this->load->view ( 'common/footer' , $dataLogged);
 
     }
 

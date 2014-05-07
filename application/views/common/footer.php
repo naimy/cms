@@ -2,7 +2,7 @@
 </div>
 <div id="templatemo_footer_wrapper">
 	<div id="templatemo_footer">
-
+		Liste des personnes connectés : <?php echo $names ;?> <br/>
 		Copyright © 2013 <a href="#">Serveur-G</a> | Designed by Palumbo
 		Jonathan</a>
 
@@ -16,9 +16,9 @@
 <script src="<?php echo site_url() ?>public/js/advanced.js"></script>
 <script src="<?php echo site_url() ?>public/js/wysihtml5.js"></script>
 <?php if($connexion == TRUE){ ?>
-<script src="<?php echo site_url() ?>public/js/client.js"></script>
+<!--  <script src="<?php echo site_url() ?>public/js/client.js"></script>
 <script src="<?php echo site_url() ?>public/js/message.js"></script>
-<script src="<?php echo site_url() ?>public/js/chat.js"></script>
+<script src="<?php echo site_url() ?>public/js/chat.js"></script> -->
 <?php } ?>
 </body>
 </html>
