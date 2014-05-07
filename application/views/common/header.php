@@ -69,6 +69,13 @@
 			<div class="error">Erreur de connexion, verifier vos identifiants</div>
 			<?php } ?>
 		<!-- end of middle -->
+
+		<div id="carousel">
+			<div class="controlLeft"></div>
+			<div class="carousselContent"><img src="<?php echo site_url() ?>/public/img/templatemo_image_01.jpg" height="200px" /></div>
+			<div class="controlRight"></div>
+		</div>
+
 		<div id="templatemo_main">
 		<?php if( isset($_GET['error']) && $_GET['error'] == 1){?>
 		<div class="error">Erreur sur la modification</div>

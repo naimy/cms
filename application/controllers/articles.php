@@ -75,6 +75,56 @@ class Articles extends CI_Controller {
 		$this->load->view('articles', $dataArticles);
 		$this->load->view ( 'common/footer', $dataLogged);
 	}
+
+	public function ViewSimple() {
+		session_start ();
+		$this->load->helper ( 'url' );
+		$this->load->database ();
+
+		if (isset ( $_SESSION ['login'] )) {
+			$connexion = true;
+		} else {
+			$connexion = false;
+		}
+
+		$this->load->model ( 'nav_model' );
+		$this->load->model ( 'config_model' );
+		$this->load->model ( 'article_model' );
+
+		try {
+			$responses = $this->nav_model->getNav ();
+			$title = $this->config_model->getTitle ();
+		} catch ( Exception $exception ) {
+		}
+
+		$data = array (
+				'connexion' => $connexion,
+				'nav' => $responses,
+				'title' => $title[0]->value
+		);
+
+		$this->load->model ( 'login_model' );
+		$logged = $this->login_model->getLogged ();
+		$names = "";
+		for($i=0;$i<count($logged);$i++){
+			$names = $names . $logged[$i]->name . "  ";
+		}
+		$dataLogged = array (
+				'names' => $names
+		);
+
+		$article = $this->article_model->getArticleFromId($_GET['id']);
+
+		$dataArticles = array (
+				'libelle_article' => $article[0]->libelle_articles,
+				'content_article' => $article[0]->content_article
+		);
+
+		$this->load->view ( 'common/header', $data );
+		$this->load->view('simpleArticle' , $dataArticles);
+		$this->load->view ( 'common/footer', $dataLogged);
+	}
+
 }
 
 /* End of file welcome.php */
